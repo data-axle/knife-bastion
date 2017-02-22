@@ -5,8 +5,8 @@ class Chef
     class BastionStart < BastionBase
       option :timeout,
              long:        "--timeout SECONDS",
-             description: "Sets the tunnel life time, in seconds (10 minutes by default)",
-             default:     600,
+             description: "Sets the tunnel life time, in seconds (20 minutes by default)",
+             default:     1200,
              proc:        lambda { |s| s.to_i }
 
       deps do
@@ -20,8 +20,8 @@ class Chef
         super
 
         @timeout = config[:timeout]
-        @timeout = 600  if @timeout < 1    # timeout should be greater than 0
-        @timeout = 3600 if @timeout > 3600 # timeout should be less than 1 hour
+        @timeout = 300  if @timeout < 300            # timeout should be greater than 300
+        @timeout = 12 * 3600 if @timeout > 12 * 3600 # timeout should be less than 12 hours
       end
 
       def run

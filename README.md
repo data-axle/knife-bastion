@@ -30,7 +30,7 @@ Or install it yourself as:
 
 ## Usage
 
-Configure your bastion server in `.chef/knife.rb` (at the bottom):
+Configure your bastion server in `.chef/config.rb` (at the bottom):
 
 ```ruby
 # ...
@@ -126,3 +126,9 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/eligib
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## Releasing a gem to github packages
+
+1. Increment the version number
+2. Run: gem build knife-bastion
+3. Publish to github packages: gem push --key github knife-bastion-<version>.gem

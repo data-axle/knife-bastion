@@ -32,8 +32,8 @@ class Chef
 
         print_tunnel_info("Creating a tunnel to Chef server:", timeout: @timeout)
 
-        ui.info "Establishing connection to #{ui.color @bastion_host, [:bold, :white]}"
-        ui.warn "Please make sure to use your #{ui.color @bastion_network, [:bold, :magenta]} token" if @bastion_network
+        ui.info "Establishing connection to #{ui.color @bastion_host, :bold, :white}"
+        ui.warn "Please make sure to use your #{ui.color @bastion_network, :bold, :magenta} token" if @bastion_network
 
         start_proxy
       end
